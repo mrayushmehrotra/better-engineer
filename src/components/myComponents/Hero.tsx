@@ -5,6 +5,8 @@ import { FaArrowRight } from "react-icons/fa";
 import Marquee from "../magicui/marquee";
 import { cn } from "@/lib/utils";
 import { JetBrains_Mono } from "next/font/google";
+import TextsReveal from "@/components/myComponents/TextsReveal";
+
 const inter = JetBrains_Mono({ weight: "400", preload: false });
 const Hero = () => {
   const reviews = [
@@ -86,7 +88,7 @@ const Hero = () => {
           <Typed />
         </h1>
         <Button
-          className="bg-white p-5  mt-10 text-black rounded-sm"
+          className="bg-white p-5  mt-12 text-black rounded-sm"
           variant={"outline"}
         >
           Get Started &nbsp; <FaArrowRight />
@@ -97,6 +99,15 @@ const Hero = () => {
           <ReviewCard key={review.username} {...review} />
         ))}
       </Marquee>
+      <div className="mt-12"></div>
+      <h1>
+        <TextsReveal
+          text="Your AI Companion is your best friend :) 
+        It is here to assist you, provide insights, and make your life easier. 
+        AI is not just a tool but a trusted ally that learns and grows with you. 
+        It is always ready to help, offering knowledge and support right at your fingertips."
+        />
+      </h1>
     </>
   );
 };
