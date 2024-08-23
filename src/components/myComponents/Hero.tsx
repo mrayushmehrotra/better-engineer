@@ -2,25 +2,102 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import Typed from "@/Utils/Typed";
 import { FaArrowRight } from "react-icons/fa";
-import Image from "next/image";
-
+import Marquee from "../magicui/marquee";
+import { cn } from "@/lib/utils";
+import { JetBrains_Mono } from "next/font/google";
+const inter = JetBrains_Mono({ weight: "400", preload: false });
 const Hero = () => {
-  return (
-    <main className="flex text-white max-h-screen flex-col items-center justify-between p-24 overflow-hidden  ">
-      <h1 className="text-8xl m-4 font-  ">
-        An <span>AI</span>{" "}
-        <Image src="/hero_paint.png" width={100} height={100} alt="hero" />
-      </h1>
-      <h1 className="text-8xl mt-2 text-center">
-        <Typed />
-      </h1>
-      <Button
-        className="bg-white p-5  mt-10 text-black rounded-sm"
-        variant={"outline"}
+  const reviews = [
+    {
+      name: "Avinash Kumar",
+      username: "@avinashkumar",
+      body: "I've never seen anything like this before. It's amazing. I love it.",
+    },
+    {
+      name: "Priyanka Singh",
+      username: "@priyankasingh",
+      body: "I don't know what to say. I'm speechless. This is amazing.",
+    },
+    {
+      name: "Rahul Gupta",
+      username: "@rahulgupta",
+      body: "I'm at a loss for words. This is amazing. I love it.",
+    },
+    {
+      name: "Neha Sharma",
+      username: "@nehasharma",
+      body: "I'm at a loss for words. This is amazing. I love it.",
+    },
+    {
+      name: "Amit Verma",
+      username: "@amitverma",
+      body: "I'm at a loss for words. This is amazing. I love it.",
+    },
+    {
+      name: "Meena Kumari",
+      username: "@meenakumari",
+      body: "I'm at a loss for words. This is amazing. I love it.",
+    },
+  ];
+  const firstRow = reviews.slice(0, reviews.length / 2);
+
+  const ReviewCard = ({
+    name,
+    username,
+    body,
+  }: {
+    name: string;
+    username: string;
+    body: string;
+  }) => {
+    return (
+      <figure
+        className={cn(
+          "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+          // light styles
+          "border-gray-700 bg-gray-950/[.01] hover:bg-gray-50/[.05]",
+          // dark styles
+          "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.5]"
+        )}
       >
-        Get Started &nbsp; <FaArrowRight />
-      </Button>
-    </main>
+        <div className="flex flex-row items-center gap-2">
+          <div className="flex text-white  flex-col gap-y-2  ">
+            <figcaption className="text-sm  font-medium  dark:text-white">
+              {name}
+            </figcaption>
+            <p className="text-xs font-medium  text-zinc-400    dark:text-white/40">
+              {username}
+            </p>
+          </div>
+        </div>
+        <blockquote className="mt-2 text-white  text-sm">{body}</blockquote>
+      </figure>
+    );
+  };
+
+  return (
+    <>
+      <main className="flex text-white max-h-screen flex-col items-center justify-between p-24 overflow-x-hidden  ">
+        <h1 className="text-8xl m-4 font-  ">
+          An <span>AI</span>{" "}
+        </h1>
+        <h1 className={`text-8xl mt-2 text-center ${inter.className}  `}>
+          {" "}
+          <Typed />
+        </h1>
+        <Button
+          className="bg-white p-5  mt-10 text-black rounded-sm"
+          variant={"outline"}
+        >
+          Get Started &nbsp; <FaArrowRight />
+        </Button>
+      </main>
+      <Marquee pauseOnHover className="   [--duration:20s]">
+        {firstRow.map((review) => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+    </>
   );
 };
 
