@@ -23,7 +23,9 @@ const Navbar = () => {
       <ul className="flex">
         <li>
           <Link href={isUser ? "/dashboard" : "/sign-in"}>
-            <Button>Already A User?</Button>
+            <Button className={`${isUser ? "hidden" : ""}`}>
+              Already A User?
+            </Button>
           </Link>
         </li>
         <li>
@@ -32,7 +34,7 @@ const Navbar = () => {
               className="bg-white text-black rounded-lg"
               variant="outline"
             >
-              Get Started
+              {isUser ? "Dashboard" : "Get Started"}
             </Button>
           </Link>
         </li>

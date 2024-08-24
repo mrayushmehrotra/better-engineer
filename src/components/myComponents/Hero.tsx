@@ -6,6 +6,7 @@ import Marquee from "../magicui/marquee";
 import { cn } from "@/lib/utils";
 import { JetBrains_Mono } from "next/font/google";
 import TextsReveal from "@/components/myComponents/TextsReveal";
+import BoxReveal from "@/components/magicui/box-reveal";
 
 const inter = JetBrains_Mono({ weight: "400", preload: false });
 const Hero = () => {
@@ -59,7 +60,7 @@ const Hero = () => {
           // light styles
           "border-gray-700 bg-gray-950/[.01] hover:bg-gray-50/[.05] , hover:translate-y-1  ",
           // dark styles
-          "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.5]",
+          "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.5]"
         )}
       >
         <div className="flex flex-row items-center gap-2">
@@ -80,9 +81,11 @@ const Hero = () => {
   return (
     <>
       <main className="flex text-white max-h-screen flex-col items-center justify-between p-24 overflow-x-hidden  ">
-        <h1 className="text-8xl m-4 font-  ">
-          An <span>AI</span>{" "}
-        </h1>
+        <BoxReveal boxColor={"#09090b"} duration={0.5}>
+          <h1 className="text-8xl m-4 font-  ">
+            An <span>AI</span>{" "}
+          </h1>
+        </BoxReveal>
         <h1 className={`text-8xl mt-2 text-center ${inter.className}  `}>
           {" "}
           <Typed />
