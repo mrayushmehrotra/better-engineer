@@ -11,21 +11,22 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
-const page = () => {
+const CreditsDrawer = () => {
   return (
-    <div>
-      page
+    <div className="text-white flex items-center justify-center">
       <Drawer>
-        <DrawerTrigger>Open</DrawerTrigger>
-        <DrawerContent>
-          <DrawerHeader>
-            <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-            <DrawerDescription>This action cannot be undone.</DrawerDescription>
+        <DrawerTrigger>API Usage</DrawerTrigger>
+        <DrawerContent className="text-white">
+          <DrawerHeader className="flex m-5 items-center gap-y-6  justify-center flex-col">
+            <DrawerTitle> Usage</DrawerTitle>
+            <DrawerDescription>Your API Usage is: 1/5</DrawerDescription>
           </DrawerHeader>
+
           <DrawerFooter>
-            <Button>Submit</Button>
             <DrawerClose>
-              <Button variant="outline">Cancel</Button>
+              <Button className="bg-white text-black" variant="outline">
+                Cancel
+              </Button>
             </DrawerClose>
           </DrawerFooter>
         </DrawerContent>
@@ -34,4 +35,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default CreditsDrawer;
