@@ -10,10 +10,12 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+
 import { Button } from "@/components/ui/button";
+
 const CreditsDrawer = () => {
   return (
-    <div className="text-white flex items-center justify-center">
+    <div className="text-black hover:text-white flex items-center justify-center">
       <Drawer>
         <DrawerTrigger>API Usage</DrawerTrigger>
         <DrawerContent className="text-white">
