@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+//@ts-ignore
 import Typewriter from "typewriter-effect/dist/core";
 
 const Typed = () => {

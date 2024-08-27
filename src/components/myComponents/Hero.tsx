@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { JetBrains_Mono } from "next/font/google";
 import TextsReveal from "@/components/myComponents/TextsReveal";
 import BoxReveal from "@/components/magicui/box-reveal";
-
+import Link from "next/link";
 const inter = JetBrains_Mono({ weight: "400", preload: false });
 const Hero = () => {
   const reviews = [
@@ -60,7 +60,7 @@ const Hero = () => {
           // light styles
           "border-gray-700 bg-gray-950/[.01] hover:bg-gray-50/[.05] , hover:translate-y-1  ",
           // dark styles
-          "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.5]"
+          "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.5]",
         )}
       >
         <div className="flex flex-row items-center gap-2">
@@ -90,12 +90,14 @@ const Hero = () => {
           {" "}
           <Typed />
         </h1>
-        <Button
-          className="bg-white p-5  mt-12 text-black rounded-sm"
-          variant={"outline"}
-        >
-          Get Started &nbsp; <FaArrowRight />
-        </Button>
+        <Link href="/sign-up">
+          <Button
+            className="bg-white p-5  mt-12 text-black rounded-sm"
+            variant={"outline"}
+          >
+            Get Started &nbsp; <FaArrowRight />
+          </Button>
+        </Link>
       </main>
       <Marquee pauseOnHover className="   [--duration:20s]">
         {firstRow.map((review) => (
